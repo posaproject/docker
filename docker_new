@@ -1,1 +1,9 @@
-created a new docker_new text file
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install apache2 -y
+
+EXPOSE 80
+
+COPY ./explore_california/. /var/www/html/
+
+ENTRYPOINT ["service","apache2","start"]
